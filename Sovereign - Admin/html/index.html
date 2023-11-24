@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Admin - Sovereign</title>
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="shortcut icon" href="../img/Shortcut_Logo.jpg">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <img src="../img/Sovereign_LogoAdmin.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Index","MainAdmin")">
+                        <span class="icon"><ion-icon name="home"></ion-icon></span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Index","LoaiSanPhamAdmin")">
+                        <span class="icon"><ion-icon name="bag-handle"></ion-icon></span>
+                        <span class="title">Quản lý loại sản phẩm</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Index","SanPhamAdmin")">
+                        <span class="icon"><ion-icon name="shirt"></ion-icon></span>
+                        <span class="title">Sản phẩm</span>
+                    </a>
+                </li>
+<!--                 
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="help-outline"></ion-icon></span>
+                        <span class="title">Help</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                        <span class="title">Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                        <span class="title">Password</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="log-out"></ion-icon></span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li> -->
+            </ul>
+        </div>
+        <!-- main -->
+        <div class="main">
+            <!-- topbar -->
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+                <div class="Title">
+                    <label>
+                        <h1>Quản Lý Loại Sản Phẩm</h1>
+                    </label>
+                </div>
+                <div class="user"></div>
+            </div>
+            <!-- card -->
+            <div class="cardBox">
+                <a href="#" class="card">
+                    <div>
+                        <div class="numbers">Add</div>
+                        <div class="cardName">Thêm loại sản phẩm</div>
+                    </div>
+                    <div class="iconBox">
+                        <ion-icon name="add-circle-outline"></ion-icon>
+                    </div>
+                </a>
+                <div class="card">
+                    <div>
+                        <div class="numbers">Edit</div>
+                        <div class="cardName">Sửa Loại Sản Phẩm</div>
+                    </div>
+                    <div class="iconBox">
+                        <ion-icon name="create-outline"></ion-icon>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="numbers">Delete</div>
+                        <div class="cardName">Xóa Loại sản phẩm</div>
+                    </div>
+                    <div class="iconBox">
+                        <ion-icon name="trash-outline"></ion-icon>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="details">
+                <!-- danh sách data -->
+                <div class="recentOrders">
+                    <div class="cardHeader">
+                        <h2>Recent order</h2>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tên Loại Sản Phẩm</th>
+                                <th>Mã Loại Sản Phẩm</th>
+                                <th>Tên Loại Sản Phẩm</th>
+                                <th>Mã Loại Sản Phẩm</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Star Refrigerator</td>
+                                <td>$1200</td>
+                                <td>$1200</td>
+                                <td>$1200</td>
+                                <td><a href=""><ion-icon name="create"></ion-icon></a></td>
+                                <td><a href=""><ion-icon name="trash"></ion-icon></a></td>
+                            </tr>
+                            <tr>
+                                <td>Star Refrigerator</td>
+                                <td>$1200</td>
+                                <td>$1200</td>
+                                <td>$1200</td>
+                                <td><a href=""><ion-icon name="create"></ion-icon></a></td>
+                                <td><a href=""><ion-icon name="trash"></ion-icon></a></td>
+                            </tr>
+                            <!-- Các dòng dữ liệu khác -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        //menu toggle
+        let toggle=document.querySelector('.toggle');
+        let navigation=document.querySelector('.navigation');
+        let main=document.querySelector('.main');
+
+        toggle.onclick = function(){
+            navigation.classList.toggle('active');
+            main.classList.toggle('active');
+        }
+        //thêm hiệu ứng di chuột vào mục danh sách đã chọn
+        let list = document.querySelectorAll('.navigation li');
+        function activeLink(){
+            list.forEach((item) => 
+            item.classList.remove('hovered'));
+                this.classList.add('hovered');
+        }
+        list.forEach((item)=>item.addEventListener('mouseover',activeLink));
+
+    </script>
+</body>
+</html>
